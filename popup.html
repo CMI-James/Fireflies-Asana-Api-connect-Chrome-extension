@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fireflies<>Asana Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" style="min-height: 580px;">
+    <div class="header">
+      <img src="icons/icon48.png" alt="Logo" class="logo">
+      <h1>Fireflies<>Asana Connect</h1>
+    </div>
+
+    <div id="setup-view" class="view">
+      <h2>API Configuration</h2>
+      <div class="form-group">
+        <label for="fireflies-api-key">Fireflies.ai API Key</label>
+        <input type="password" id="fireflies-api-key" placeholder="Enter your Fireflies.ai API key">
+      </div>
+      <div class="form-group">
+        <label for="asana-api-key">Asana Personal Access Token</label>
+        <input type="password" id="asana-api-key" placeholder="Enter your Asana Personal Access Token">
+      </div>
+      <div class="form-group">
+        <label for="monday-api-key">Monday CRM API Token</label>
+        <input type="password" id="monday-api-key" placeholder="Enter your Monday CRM API Token">
+      </div>
+      <button id="save-api-keys" class="primary-button">Save API Keys</button>
+    </div>
+
+    <div id="main-view" class="view hidden">
+      <div class="tabs">
+        <button id="tab-meetings" class="tab-button active">Meetings</button>
+        <button id="tab-settings" class="tab-button">Settings</button>
+      </div>
+
+      <div id="meetings-content" class="tab-content">
+        <div class="form-group">
+          <label for="meeting-select">Select Meeting</label>
+          <select id="meeting-select">
+            <option value="">Loading meetings...</option>
+          </select>
+          <button id="refresh-meetings" class="secondary-button">Refresh</button>
+        </div>
+
+        <div id="meeting-details" class="hidden">
+          <div id="meeting-details-content">
+            <h3>Meeting Summary</h3>
+            <div id="meeting-summary" class="summary-box"></div>
+            
+            <h3>Meeting Notes</h3>
+            <div id="meeting-notes" class="notes-box"></div>
+            
+            <h3>Action Items</h3>
+            <div id="action-items" class="action-items-box"></div>
+            
+            <div class="integration-section">
+              <h3>Send to Asana</h3>
+              <div class="form-group">
+                <label for="asana-integration" class="checkbox-label">
+                  <input type="checkbox" id="asana-integration" checked>
+                  Enable Asana integration
+                </label>
+              </div>
+              
+              <div id="asana-details">
+                <div class="form-group">
+                  <label for="workspace-select">Asana Workspace</label>
+                  <select id="workspace-select">
+                    <option value="">Select workspace</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="project-select">Asana Project</label>
+                  <select id="project-select">
+                    <option value="">Select project</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="integration-section">
+              <h3>Send to Monday CRM</h3>
+              <div class="form-group">
+                <label for="monday-integration" class="checkbox-label">
+                  <input type="checkbox" id="monday-integration" checked>
+                  Enable Monday CRM integration
+                </label>
+              </div>
+              
+              <div id="monday-details">
+                <div class="form-group">
+                  <label for="monday-workspace-select">Monday Workspace</label>
+                  <select id="monday-workspace-select">
+                    <option value="">Select workspace</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="monday-board-select">Monday Board</label>
+                  <select id="monday-board-select">
+                    <option value="">Select board</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="monday-item-select">Customer/Item</label>
+                  <select id="monday-item-select">
+                    <option value="">Select customer</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="monday-create-new" class="checkbox-label">
+                    <input type="checkbox" id="monday-create-new">
+                    Create new item instead
+                  </label>
+                </div>
+                
+                <div id="monday-new-item" class="form-group hidden">
+                  <label for="monday-new-item-name">New Item Name</label>
+                  <input type="text" id="monday-new-item-name" placeholder="Enter new item name">
+                </div>
+              </div>
+            </div>
+            
+            <button id="send-to-asana" class="primary-button">Send to Integrations</button>
+          </div>
+          
+          <div id="meeting-loading" class="loading-overlay hidden">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading meeting details...</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings-content" class="tab-content hidden">
+        <h3>API Configuration</h3>
+        <div class="form-group">
+          <label for="update-fireflies-api-key">Fireflies.ai API Key</label>
+          <input type="password" id="update-fireflies-api-key" placeholder="Enter your Fireflies.ai API key">
+        </div>
+        <div class="form-group">
+          <label for="update-asana-api-key">Asana Personal Access Token</label>
+          <input type="password" id="update-asana-api-key" placeholder="Enter your Asana Personal Access Token">
+        </div>
+        <div class="form-group">
+          <label for="update-monday-api-key">Monday CRM API Token</label>
+          <input type="password" id="update-monday-api-key" placeholder="Enter your Monday CRM API Token">
+        </div>
+        <button id="update-api-keys" class="primary-button">Update API Keys</button>
+      </div>
+    </div>
+
+    <div id="status-message" class="status hidden"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

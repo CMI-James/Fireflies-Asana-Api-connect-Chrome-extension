@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clear Asana Project Description</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <img src="icons/icon48.png" alt="Logo" class="logo">
+    <h1>Clear Asana Project Description</h1>
+  </div>
+
+  <div id="main-view" class="view">
+    <p class="warning-text">This will completely clear the selected Asana project description. This action cannot be undone.</p>
+    
+    <div class="form-group">
+      <label for="workspace-select">Asana Workspace</label>
+      <select id="workspace-select">
+        <option value="">Select workspace</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="project-select">Asana Project</label>
+      <select id="project-select">
+        <option value="">Select project</option>
+      </select>
+    </div>
+    
+    <button id="clear-description" class="danger-button">Clear Project Description</button>
+    <button id="back-button" class="secondary-button">Back to Main</button>
+  </div>
+
+  <div id="status-message" class="status hidden"></div>
+</div>
+
+<script src="clear-description.js"></script>
+</body>
+</html>
+
